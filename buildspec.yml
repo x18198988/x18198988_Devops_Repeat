@@ -1,0 +1,34 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo "Running tests..."
+      - python manage.py test
+
+  build:
+    commands:
+      - echo "Running migrations..."
+      - python manage.py migrate
+      - echo "Collecting static files..."
+      - python manage.py collectstatic --noinput
+
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+artifacts:
+  files:
+    - '**/*'
+  name: django-app-$(date +%Y-%m-%d)
+
+cache:
+  paths:
+    - '/root/.cache/pip'
