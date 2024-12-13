@@ -7,6 +7,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
 ALLOWED_HOSTS = ['15684abe28e84c48997a37dec51037f5.vfs.cloud9.eu-west-1.amazonaws.com', '*']
 
+CSRF_TRUSTED_ORIGINS = ['https://*.vfs.cloud9.eu-west-1.amazonaws.com']
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
