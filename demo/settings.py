@@ -5,7 +5,7 @@ ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = ['15684abe28e84c48997a37dec51037f5.vfs.cloud9.eu-west-1.amazonaws.com']
+ALLOWED_HOSTS = ['15684abe28e84c48997a37dec51037f5.vfs.cloud9.eu-west-1.amazonaws.com', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,6 +28,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -125,3 +126,5 @@ STRIPE_PUBLIC_KEY = 'pk_test_lX3r6OMjOU2yzFsNSHq6belT00EY82kZmH'
 STRIPE_SECRET_KEY = 'sk_test_tn0CTDaIJHUJyAqhsf39cfsC00LNjsqDnb'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_FAILURE_VIEW = 'django.views.csrf.csrf_failure'
+
