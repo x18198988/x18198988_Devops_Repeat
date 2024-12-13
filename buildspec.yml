@@ -19,6 +19,4 @@ phases:
     commands:
       - echo Post-build phase...
 
-artifacts:
-  files:
-   - '/*'
+
